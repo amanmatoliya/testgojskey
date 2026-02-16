@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+.gshDisplay {
+  border-color: #C6AC86 !important;
+  opacity: 0.02 !important;
+  margin-bottom: 6px !important;
+}
