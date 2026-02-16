@@ -20,3 +20,9 @@ h1 {
   background-color: #f9f9f9;
   border-radius: 4px;
 }
+
+.gshDisplay {
+  border-color: #C6AC86;
+  opacity: 0.02;
+  margin-bottom: 6px;
+}
