@@ -22,7 +22,7 @@ h1 {
 }
 
 .gshDisplay {
-  border-color: #C6AC86;
-  opacity: 0.02;
-  margin-bottom: 6px;
+  border-color: #C6AC86 !important;
+  opacity: 0.02 !important;
+  margin-bottom: 6px !important;
 }
