@@ -1,7 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "outputDirectory": "gojs-license-test/dist/gojs-license-test",
+  "baseDirectory": "gojs-license-test",
+  "buildCommand": "npm run build -- --prod",
+  "outputDirectory": "dist/gojs-license-test",
   "routes": [
     {
       "src": "/(.*)",
