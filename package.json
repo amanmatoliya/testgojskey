@@ -1,0 +1,9 @@
+{
+  "name": "testgojskey",
+  "version": "1.0.0",
+  "description": "GoJS 2.3 License Test - Angular 10 on Vercel",
+  "private": true,
+  "scripts": {
+    "build": "cd gojs-license-test && npm run build -- --prod"
+  }
+}

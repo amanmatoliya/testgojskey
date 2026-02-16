@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "cd gojs-license-test && npm run build -- --prod",
+  "buildCommand": "npm run build",
   "outputDirectory": "gojs-license-test/dist/gojs-license-test",
   "routes": [
     {
