@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build -- --prod",
+  "outputDirectory": "dist/gojs-license-test",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html",
+      "status": 200
+    }
+  ]
+}

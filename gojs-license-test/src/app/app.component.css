@@ -1,0 +1,22 @@
+﻿.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.diagram-container {
+  width: 800px;
+  height: 500px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
