@@ -34,7 +34,7 @@ export class AppComponent implements AfterViewInit {
 
       // Create a script element to load GoJS
       const script = document.createElement('script');
-      script.src = 'assets/go.js';
+      script.src = 'assets/go-3.1.5.js';
       script.onload = () => {
         resolve();
       };
