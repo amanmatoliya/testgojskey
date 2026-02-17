@@ -1,5 +1,6 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import * as go from 'gojs';
+import { Component, ViewChild, ElementRef, AfterViewInit, NgZone } from '@angular/core';
+
+declare const go: any;
 
 @Component({
   selector: 'app-root',
@@ -9,14 +10,46 @@ import * as go from 'gojs';
 export class AppComponent implements AfterViewInit {
   @ViewChild('diagramDiv') diagramDiv: ElementRef;
   
-  // Set your GoJS license key here
-  //private licenseKey = '2b8647e1b56649c702d90776423d68f919a175639d811fa30e0414f3b90d3d06329fbb2855d38d9387a81bfe497d90d1dcc03b209148023cb731d7d94be08eaae53327e5470b4489a20b24969cff7ff2ff7872f3c1b024f2d36a9cf4bef8c59c0eb8f2c6589d08bb2b28';
+  // GoJS license key
+  private licenseKey = '7cff47e0e2755ad56dda0d25443b7efb0aab2934cb820ce00f5845a7e8093b177698ea7b54d099d0d5f01ef41b7f90d989c66b2c974e553ee230dada46b280f9b23174bb160014daa00371c59ef92da1f47924fbd0a571f78a7e8ca0bba9d18c5c';
+  
+  constructor(private ngZone: NgZone) {}
 
   ngAfterViewInit(): void {
-    this.initializeDiagram();
+    // First, dynamically load the GoJS library by injecting a script tag
+    this.loadGoJS().then(() => {
+      this.ngZone.run(() => {
+        this.initializeDiagram();
+      });
+    });
+  }
+
+  private loadGoJS(): Promise<void> {
+    return new Promise((resolve) => {
+      // Check if go is already loaded
+      if (typeof (window as any).go !== 'undefined') {
+        resolve();
+        return;
+      }
+
+      // Create a script element to load GoJS
+      const script = document.createElement('script');
+      script.src = 'assets/go.js';
+      script.onload = () => {
+        resolve();
+      };
+      script.onerror = () => {
+        console.error('Failed to load GoJS library');
+        resolve(); // Continue even if load fails
+      };
+      document.head.appendChild(script);
+    });
   }
 
   initializeDiagram(): void {
+    // Set the GoJS license key FIRST, before creating any diagrams
+    (go.Diagram as any).licenseKey = this.licenseKey;
+    
     // Set the license key
     //go.Diagram.licenseKey = this.licenseKey;
 
