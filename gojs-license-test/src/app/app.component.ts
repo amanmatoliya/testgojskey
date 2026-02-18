@@ -16,33 +16,8 @@ export class AppComponent implements AfterViewInit {
   constructor(private ngZone: NgZone) {}
 
   ngAfterViewInit(): void {
-    // First, dynamically load the GoJS library by injecting a script tag
-    this.loadGoJS().then(() => {
-      this.ngZone.run(() => {
-        this.initializeDiagram();
-      });
-    });
-  }
-
-  private loadGoJS(): Promise<void> {
-    return new Promise((resolve) => {
-      // Check if go is already loaded
-      if (typeof (window as any).go !== 'undefined') {
-        resolve();
-        return;
-      }
-
-      // Create a script element to load GoJS
-      const script = document.createElement('script');
-      script.src = 'assets/go-3.1.5.js';
-      script.onload = () => {
-        resolve();
-      };
-      script.onerror = () => {
-        console.error('Failed to load GoJS library');
-        resolve(); // Continue even if load fails
-      };
-      document.head.appendChild(script);
+    this.ngZone.run(() => {
+      this.initializeDiagram();
     });
   }
 
