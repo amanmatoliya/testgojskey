@@ -24,7 +24,7 @@ export class AppComponent implements AfterViewInit {
   initializeDiagram(): void {
     // Set the GoJS license key FIRST, before creating any diagrams
     (go.Diagram as any).licenseKey = this.licenseKey;
-    go.Link.setRoutingParameter(32, 508602);
+    //go.Link.setRoutingParameter(32, 508602);
     // Set the license key
     //go.Diagram.licenseKey = this.licenseKey;
 
